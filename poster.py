@@ -60,7 +60,9 @@ def send(entry):
 
 def main():
     last_link = load_last_link()
-    feed = feedparser.parse(FEED_URL, agent="Mozilla/5.0")
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+    r = requests.get(FEED_URL, headers=headers, timeout=15)
+    feed = feedparser.parse(r.text)
 
     if not feed.entries:
         print("Feed empty or unreachable.")
