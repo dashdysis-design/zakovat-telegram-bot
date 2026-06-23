@@ -25,9 +25,6 @@ jobs:
         run: pip install feedparser requests
 
       - name: Run poster
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python poster.py
 
       - name: Save state
