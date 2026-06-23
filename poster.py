@@ -6,7 +6,7 @@ import os
 
 BOT_TOKEN = "8558730057:AAHoYukZxPd7mwq3kLXj4APOYY-GVQH"
 CHAT_ID   = "@zakovatinfo"
-FEED_URL  = "https://zakovat.uz/feed/"
+FEED_URL  = "https://www.zakovat.uz/feed/"
 STATE_FILE = os.path.join(os.path.dirname(__file__), "last_posted.json")
 
 
@@ -60,7 +60,7 @@ def send(entry):
 
 def main():
     last_link = load_last_link()
-    feed = feedparser.parse(FEED_URL)
+    feed = feedparser.parse(FEED_URL, agent="Mozilla/5.0")
 
     if not feed.entries:
         print("Feed empty or unreachable.")
